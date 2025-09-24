@@ -1,7 +1,7 @@
 // src/components/layout/Footer.jsx
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { gsap } from 'gsap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,48 +9,50 @@ const Footer = () => {
   const footerRef = useRef(null);
   const heartsRef = useRef([]);
 
-  useEffect(() => {
-    // Footer entrance animation
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: footerRef.current,
-        start: "top 80%",
-        toggleActions: "play none none reverse"
-      }
-    });
+  const location = useLocation();
 
-    tl.fromTo(footerRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 100, duration: 0.4, ease: "power3.out" }
-    )
-    .fromTo(".footer-item",
-      { y: 10, opacity: 100 },
-      { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "back.out(1.5)" },
-      "-=0.2"
-    );
+  // useEffect(() => {
+  //   // Footer entrance animation
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: footerRef.current,
+  //       start: "top 80%",
+  //       toggleActions: "play none none reverse"
+  //     }
+  //   });
 
-    // Floating hearts animation
-    heartsRef.current.forEach((heart, i) => {
-      gsap.to(heart, {
-        y: -2,
-        rotation: 10,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: i * 0
-      });
-    });
+  //   tl.fromTo(footerRef.current,
+  //     { y: 50, opacity: 0 },
+  //     { y: 0, opacity: 100, duration: 0.4, ease: "power3.out" }
+  //   )
+  //   .fromTo(".footer-item",
+  //     { y: 10, opacity: 100 },
+  //     { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "back.out(1.5)" },
+  //     "-=0.2"
+  //   );
 
-    // Background pulse effect
-    gsap.to(footerRef.current, {
-      backgroundPosition: "0% 50%",
-      duration: 10,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
-    });
-  }, []);
+  //   // Floating hearts animation
+  //   heartsRef.current.forEach((heart, i) => {
+  //     gsap.to(heart, {
+  //       y: -2,
+  //       rotation: 10,
+  //       duration: 2,
+  //       repeat: -1,
+  //       yoyo: true,
+  //       ease: "sine.inOut",
+  //       delay: i * 0
+  //     });
+  //   });
+
+  //   // Background pulse effect
+  //   gsap.to(footerRef.current, {
+  //     backgroundPosition: "0% 50%",
+  //     duration: 10,
+  //     repeat: -1,
+  //     yoyo: true,
+  //     ease: "sine.inOut"
+  //   });
+  // }, []);
 
   const quickLinks = [
     { path: '/', label: 'Home' },
@@ -67,10 +69,31 @@ const Footer = () => {
     { platform: 'Family Album', icon: '🖼️', url: '#' }
   ];
 
+ function colorWithPathname() {
+
+  if (location.pathname ) {
+    const nav = location.pathname;
+    console.log("pathname:", nav);
+    // === '/about ' || location.pathname === '/memories'
+    switch (nav) {
+      case '/about':
+      case '/memories':
+        return "bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900"
+      default:
+        return "bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900"
+    }
+  } 
+
+}
+
+
+  const colorClass  = colorWithPathname();
+  console.log("ColorClass:" , colorClass)
+
   return (
     <footer 
       ref={footerRef}
-      className="relative bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900  text-white overflow-hidden"
+      className= {`relative text-white overflow-hidden  ${colorClass} `}
     >
       {/* Floating Background Elements */}
       <div className="absolute inset-0 overflow-hidden">

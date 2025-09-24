@@ -23,7 +23,7 @@ const ContactSection = () => {
 
     // Floating background elements
     const floatingIcons = ['💌', '📮', '✉️', '📧', '💬', '📝'];
-    floatingIcons.forEach((icon, i) => {
+    floatingIcons.forEach((icon) => {
       const element = document.createElement('div');
       element.className = 'absolute text-4xl opacity-10 pointer-events-none';
       element.innerHTML = icon;
@@ -60,6 +60,7 @@ const ContactSection = () => {
       });
     } catch (error) {
       setFormState('idle');
+      console.error('Form submission failed:', error);
       // Handle error state here
     }
   };
@@ -168,7 +169,7 @@ const ContactSection = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {contactMethods.map((method, index) => (
+            {contactMethods.map((method) => (
               <InfoCard
                 key={method.title}
                 icon={method.icon}
@@ -189,7 +190,7 @@ const ContactSection = () => {
                 { icon: '👥', label: 'Active Members', value: '48' },
                 { icon: '🌎', label: 'Countries', value: '6' },
                 { icon: '📅', label: 'Years Connected', value: '70+' }
-              ].map((stat, index) => (
+              ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-4xl mb-2">{stat.icon}</div>
                   <div className="text-2xl font-bold text-purple-600">{stat.value}</div>

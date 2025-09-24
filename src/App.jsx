@@ -9,16 +9,8 @@ import MapSection from './components/sections/Map/MapSection';
 import ContactSection from './components/sections/Contact/ContactSection';
 import GamesSection from './components/sections/Games/GamesSection';
 
-// Placeholder pages for games (we can implement these later)
-const GamesPage = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <div className="text-center">
-      <div className="text-6xl mb-4">🎮</div>
-      <h1 className="text-4xl font-bold text-gray-800">Family Games</h1>
-      <p className="text-xl text-gray-600 mt-2">Coming soon - Family trivia and memory games!</p>
-    </div>
-  </div>
-);
+
+
 
 function App() {
   return (

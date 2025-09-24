@@ -24,7 +24,10 @@ const Layout = ({ children }) => {
     window.scrollTo(0, 0);
   }, [location]);
 
-  if (isLoading) {
+
+  const num = 3 
+  // if (isLoading) {
+  if (1 == num  && isLoading){
     return <Loader onComplete={() => setIsLoading(false)} />;
   }
 
