@@ -17,7 +17,7 @@ const memoryCardsData = [
   { id: 8, name: "Tree", icon: "🌳", type: "symbol" }
 ];
 
-const MemoryGame = ({ onBack, onComplete }) => {
+const MemoryGame = ({ onBack }) => {
   const [cards, setCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
@@ -52,7 +52,7 @@ const MemoryGame = ({ onBack, onComplete }) => {
 
     // Floating elements
     const floatingElements = ['🎴', '🧠', '⭐', '💫'];
-    floatingElements.forEach((element, i) => {
+    floatingElements.forEach((element) => {
       const el = document.createElement('div');
       el.className = 'absolute text-4xl opacity-20 pointer-events-none';
       el.innerHTML = element;

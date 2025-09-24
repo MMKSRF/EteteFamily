@@ -11,7 +11,7 @@ const QuizGame = ({ onBack, onComplete }) => {
   const [score, setScore] = useState(0);
   const [gameState, setGameState] = useState('intro'); // intro, playing, results
   const [questions, setQuestions] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  // const [selectedCategory, setSelectedCategory] = useState('all');
   const gameRef = useRef(null);
 
   useEffect(() => {
@@ -63,13 +63,25 @@ const QuizGame = ({ onBack, onComplete }) => {
     };
   }, [gameState]);
 
-  const startGame = (category = 'all') => {
-    setSelectedCategory(category);
+  const startGame = () => {
+    // setSelectedCategory(category);
     setQuestions(getRandomQuestions(5));
     setScore(0);
     setCurrentQuestionIndex(0);
     setGameState('playing');
   };
+
+
+
+  //   const startGame = (category = 'all') => {
+  //   setSelectedCategory(category);
+  //   setQuestions(getRandomQuestions(5));
+  //   setScore(0);
+  //   setCurrentQuestionIndex(0);
+  //   setGameState('playing');
+  // };
+
+
 
   const handleAnswer = (isCorrect, points) => {
     if (isCorrect) {

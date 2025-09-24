@@ -1,6 +1,6 @@
 // src/components/sections/Map/MapSection.jsx
-import { useState, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useEffect, useRef } from 'react';
+import {gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { locationsData, getFamilyStats } from './locationsData';
 import InteractiveMap from './InteractiveMap';
@@ -11,7 +11,7 @@ import { useScrollAnimation } from '../../animations/hooks/useScrollAnimation';
 gsap.registerPlugin(ScrollTrigger);
 
 const MapSection = () => {
-  const [selectedMember, setSelectedMember] = useState(null);
+  // const [selectedMember, setSelectedMember] = useState(null);
   const sectionRef = useRef(null);
   const statsRef = useScrollAnimation({ animation: 'fadeInUp', duration: 1 });
   const featuresRef = useScrollAnimation({ animation: 'fadeInUp', duration: 1, delay: 0.2 });
@@ -43,8 +43,13 @@ const MapSection = () => {
     });
   }, []);
 
-  const handleMemberSelect = (memberId) => {
-    setSelectedMember(memberId);
+  // const handleMemberSelect = (memberId) => {
+  //   setSelectedMember(memberId);
+  //   // You could add navigation to family tree or member profile
+  // };
+
+  const handleMemberSelect = () => {
+    // setSelectedMember(memberId);
     // You could add navigation to family tree or member profile
   };
 
