@@ -43,7 +43,7 @@ const FamilyTreeSection = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Etet <span className="bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">Family Tree</span>
+              Etete <span className="bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">Family Tree</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 leading-relaxed">
               Explore {stats.totalMembers} family members across {stats.generations} generations. 

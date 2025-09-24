@@ -79,7 +79,7 @@ const Timeline = () => {
             Our Family Journey
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From humble beginnings to a global family network, follow the timeline of EtetFamily's incredible story through generations.
+            From humble beginnings to a global family network, follow the timeline of EteteFamily's incredible story through generations.
           </p>
         </div>
 

@@ -168,7 +168,7 @@ const ContactForm = ({ onSubmit, isLoading }) => {
       {/* Form Header */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-500 p-6 text-white">
         <h2 className="text-2xl font-bold mb-2">Connect with the Family</h2>
-        <p className="opacity-90">Share your news, updates, and memories with the EtetFamily</p>
+        <p className="opacity-90">Share your news, updates, and memories with the EteteFamily</p>
       </div>
 
       {/* Form Content */}

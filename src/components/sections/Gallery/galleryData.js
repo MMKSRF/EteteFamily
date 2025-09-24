@@ -132,7 +132,7 @@ export const galleryData = {
     {
       id: 8,
       title: "Generational Portrait",
-      description: "Four generations of Etet women",
+      description: "Four generations of Etete women",
       image: "/images/gallery/generations.jpg",
       category: "generations",
       date: "2020-03-08",

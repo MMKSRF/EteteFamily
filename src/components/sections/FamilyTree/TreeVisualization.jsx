@@ -169,7 +169,7 @@ const TreeVisualization = ({ onMemberSelect, selectedMember }) => {
       <div className="relative w-full h-full min-h-screen overflow-auto bg-gradient-to-br from-gray-50 to-blue-50">
         {/* Tree Header */}
         <div className="text-center py-8 bg-gradient-to-r from-purple-600 to-pink-600 text-white">
-          <h2 className="text-4xl font-bold mb-2">Etet Family Tree</h2>
+          <h2 className="text-4xl font-bold mb-2">Etete Family Tree</h2>
           <p className="text-xl opacity-90">{stats.totalMembers} members across {stats.generations} generations</p>
         </div>
 

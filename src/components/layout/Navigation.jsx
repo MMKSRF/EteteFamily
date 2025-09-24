@@ -10,6 +10,7 @@ const Navigation = () => {
   const itemsRef = useRef([]);
 
   const location = useLocation();
+  console.log('Current path:', location.pathname);
 
   const navItems = [
     { path: '/', label: 'Home', emoji: '🏠', color: 'from-red-400 to-orange-400' },
@@ -103,7 +104,7 @@ const Navigation = () => {
           {/* Menu Header */}
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">
-              EtetFamily
+              EteteFamily
             </h2>
             <p className="text-gray-300 mt-2">Family Navigation</p>
           </div>
@@ -143,7 +144,7 @@ const Navigation = () => {
 
           {/* Footer */}
           <div className="text-center text-gray-400 text-sm">
-            <p>💖 EtetFamily Forever</p>
+            <p>💖 EteteFamily Forever</p>
           </div>
         </div>
       </div>

@@ -27,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HeroSection />} />
           <Route path="/about" element={<AboutSection />} />
+          <Route path="/memories" element={<AboutSection />} />
           <Route path="/family-tree" element={<FamilyTreeSection />} />
           <Route path="/gallery" element={<GallerySection />} />
           <Route path="/map" element={<MapSection />} />

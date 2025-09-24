@@ -1,7 +1,7 @@
 // src/components/sections/FamilyTree/familyData.js
 export const familyData = {
   id: "root",
-  name: "Etet Family Tree",
+  name: "Etete Family Tree",
   children: [
     {
       id: "gen1",
@@ -9,7 +9,7 @@ export const familyData = {
       members: [
         {
           id: "carlos",
-          name: "Carlos Etet",
+          name: "Carlos Etete",
           birthDate: "1925-03-15",
           deathDate: "2005-08-20",
           image: "/images/family/carlos.jpg",
@@ -25,7 +25,7 @@ export const familyData = {
         },
         {
           id: "maria",
-          name: "Maria Etet",
+          name: "Maria Etete",
           birthDate: "1930-07-22",
           deathDate: "2010-12-10",
           image: "/images/family/maria.jpg",
@@ -47,7 +47,7 @@ export const familyData = {
       members: [
         {
           id: "antonio",
-          name: "Antonio Etet",
+          name: "Antonio Etete",
           birthDate: "1955-11-08",
           image: "/images/family/antonio.jpg",
           role: "Business Leader",
@@ -62,7 +62,7 @@ export const familyData = {
         },
         {
           id: "isabel",
-          name: "Isabel Etet",
+          name: "Isabel Etete",
           birthDate: "1958-04-17",
           image: "/images/family/isabel.jpg",
           role: "Family Anchor",
@@ -77,7 +77,7 @@ export const familyData = {
         },
         {
           id: "miguel",
-          name: "Miguel Etet",
+          name: "Miguel Etete",
           birthDate: "1960-09-30",
           image: "/images/family/miguel.jpg",
           role: "Entrepreneur",
@@ -92,7 +92,7 @@ export const familyData = {
         },
         {
           id: "carmen",
-          name: "Carmen Etet",
+          name: "Carmen Etete",
           birthDate: "1963-12-05",
           image: "/images/family/carmen.jpg",
           role: "Global Connector",
@@ -113,7 +113,7 @@ export const familyData = {
       members: [
         {
           id: "javier",
-          name: "Javier Etet",
+          name: "Javier Etete",
           birthDate: "1985-06-14",
           image: "/images/family/javier.jpg",
           role: "Tech Innovator",
@@ -128,7 +128,7 @@ export const familyData = {
         },
         {
           id: "elena",
-          name: "Elena Etet",
+          name: "Elena Etete",
           birthDate: "1987-03-22",
           image: "/images/family/elena.jpg",
           role: "Creative Director",
@@ -143,7 +143,7 @@ export const familyData = {
         },
         {
           id: "lucia",
-          name: "Lucia Etet",
+          name: "Lucia Etete",
           birthDate: "1990-11-08",
           image: "/images/family/lucia.jpg",
           role: "Cultural Ambassador",
@@ -158,7 +158,7 @@ export const familyData = {
         },
         {
           id: "sofia",
-          name: "Sofia Etet",
+          name: "Sofia Etete",
           birthDate: "1992-04-15",
           image: "/images/family/sofia.jpg",
           role: "Education Advocate",
@@ -173,7 +173,7 @@ export const familyData = {
         },
         {
           id: "diego",
-          name: "Diego Etet",
+          name: "Diego Etete",
           birthDate: "1995-08-30",
           image: "/images/family/diego.jpg",
           role: "Environmentalist",
@@ -194,7 +194,7 @@ export const familyData = {
       members: [
         {
           id: "mateo",
-          name: "Mateo Etet",
+          name: "Mateo Etete",
           birthDate: "2015-02-18",
           image: "/images/family/mateo.jpg",
           role: "Next Generation",
@@ -209,7 +209,7 @@ export const familyData = {
         },
         {
           id: "carla",
-          name: "Carla Etet",
+          name: "Carla Etete",
           birthDate: "2018-07-25",
           image: "/images/family/carla.jpg",
           role: "Future Leader",

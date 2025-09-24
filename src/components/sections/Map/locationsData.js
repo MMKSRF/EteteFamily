@@ -132,7 +132,7 @@ export const locationsData = {
     {
       id: "family-business-hq",
       type: "business",
-      name: "Etet Family Business HQ",
+      name: "Etete Family Business HQ",
       description: "The main headquarters of our family business",
       coordinates: [40.4168, -3.7038], // Madrid
       significance: "Economic foundation",

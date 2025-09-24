@@ -199,6 +199,7 @@ const LightboxModal = ({
         </div>
 
         {/* Footer Info */}
+        {/* <div className='p-25 bg-black'>Hello folks </div> */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
           <h3 className="text-2xl font-bold mb-2">{media.title}</h3>
           <p className="text-white/90 mb-2">{media.description}</p>

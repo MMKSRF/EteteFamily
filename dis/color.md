@@ -1,3 +1,59 @@
+# 🎨 Colors Used in Footer.jsx
+
+## 🌌 Background
+- `bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700`
+  - Gradient background transitioning **purple → blue → indigo**.
+- `text-white`
+  - Main text color inside the footer.
+
+---
+
+## 🌟 Headings
+- `bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent`
+  - **EteteFamily** title uses a gradient from **yellow → pink**, clipped into the text.
+
+---
+
+## 📖 Text
+- `text-gray-200`
+  - Used for body text, navigation links, and family stats.
+- `text-gray-300`
+  - Used for the smaller quote at the very bottom.
+
+---
+
+## 🔗 Links & Buttons
+- `bg-white/20`
+  - Social media icon background (semi-transparent white).
+- `hover:bg-white/30`
+  - Slightly brighter on hover.
+- `hover:text-white`
+  - Navigation links brighten on hover.
+
+---
+
+## 🖌️ Borders
+- `border-t border-white/20`
+  - Top border of the bottom section with semi-transparent white.
+
+---
+
+## 🌊 Animated Wave (SVG Paths)
+- `text-white/30`
+  - First wave fill (light transparent white).
+- `text-white/20`
+  - Second wave fill (more transparent).
+- `text-white/10`
+  - Third wave fill (faintest).
+
+---
+
+
+
+
+
+
+
 ## Primary Colors
 - Primary: #3B82F6 (blue-500)
 - Secondary: #8B5CF6 (purple-500)

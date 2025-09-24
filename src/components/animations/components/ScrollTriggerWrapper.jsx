@@ -82,7 +82,7 @@ const ScrollTriggerWrapper = ({
   const getAnimationConfig = (anim, options) => {
     const configs = {
       fadeInUp: {
-        from: { opacity: 0, y: 100 },
+        from: { opacity: 50, y: 100 },
         to: { opacity: 1, y: 0, ease: "power2.out", ...options }
       },
       fadeInDown: {

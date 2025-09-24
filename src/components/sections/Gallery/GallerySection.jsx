@@ -324,6 +324,8 @@ const GallerySection = () => {
       </section>
 
       {/* Lightbox Modal */}
+
+      {/* <div> lorem ipsum </div> */}
       <LightboxModal
         isOpen={lightboxOpen}
         onClose={handleCloseLightbox}

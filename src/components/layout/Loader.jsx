@@ -99,7 +99,7 @@ const Loader = ({ onComplete }) => {
           ref={textRef}
           className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 bg-clip-text text-transparent"
         >
-          EtetFamily
+          EteteFamily
         </h1>
         <p className="text-white text-xl mt-4 font-light animate-pulse">
           Loading Family Memories...

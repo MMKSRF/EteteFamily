@@ -117,7 +117,7 @@ const ContactSection = () => {
               Family <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Connection</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-              Stay connected with the EtetFamily across generations and continents. 
+              Stay connected with the EteteFamily across generations and continents. 
               Share your news, updates, and memories with your extended family.
             </p>
             
@@ -241,14 +241,14 @@ const ContactSection = () => {
               <div className="text-4xl mb-3">👥</div>
               <h3 className="font-bold text-gray-800 mb-2">Family Group</h3>
               <p className="text-gray-600">Join our family WhatsApp group</p>
-              <div className="text-green-600 font-semibold mt-2">EtetFamily Chat</div>
+              <div className="text-green-600 font-semibold mt-2">EteteFamily Chat</div>
             </div>
             
             <div className="p-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl">
               <div className="text-4xl mb-3">📧</div>
               <h3 className="font-bold text-gray-800 mb-2">Direct Email</h3>
               <p className="text-gray-600">For private communications</p>
-              <div className="text-purple-600 font-semibold mt-2">family@etetfamily.com</div>
+              <div className="text-purple-600 font-semibold mt-2">family@Etetefamily.com</div>
             </div>
           </div>
         </div>

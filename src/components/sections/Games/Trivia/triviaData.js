@@ -1,6 +1,6 @@
 // src/components/sections/Games/Trivia/triviaData.js
 export const triviaData = {
-  title: "EtetFamily Quick Trivia",
+  title: "EteteFamily Quick Trivia",
   description: "Fast-paced trivia about our family! Answer quickly for bonus points.",
   questions: [
     {

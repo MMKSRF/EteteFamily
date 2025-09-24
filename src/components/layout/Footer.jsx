@@ -2,6 +2,8 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Link } from 'react-router-dom';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const footerRef = useRef(null);
@@ -18,25 +20,25 @@ const Footer = () => {
     });
 
     tl.fromTo(footerRef.current,
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power3.out" }
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 100, duration: 0.4, ease: "power3.out" }
     )
     .fromTo(".footer-item",
-      { y: 50, opacity: 0 },
+      { y: 10, opacity: 100 },
       { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "back.out(1.5)" },
-      "-=0.5"
+      "-=0.2"
     );
 
     // Floating hearts animation
     heartsRef.current.forEach((heart, i) => {
       gsap.to(heart, {
-        y: -20,
+        y: -2,
         rotation: 10,
         duration: 2,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut",
-        delay: i * 0.3
+        delay: i * 0
       });
     });
 
@@ -54,7 +56,8 @@ const Footer = () => {
     { path: '/', label: 'Home' },
     { path: '/about', label: 'Our Story' },
     { path: '/family-tree', label: 'Family Tree' },
-    { path: '/gallery', label: 'Gallery' }
+    { path: '/gallery', label: 'Gallery' },
+    {path: '/contact', label: 'Contact Us' }
   ];
 
   const socialLinks = [
@@ -67,7 +70,7 @@ const Footer = () => {
   return (
     <footer 
       ref={footerRef}
-      className="relative bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 text-white overflow-hidden"
+      className="relative bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900  text-white overflow-hidden"
     >
       {/* Floating Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -87,13 +90,13 @@ const Footer = () => {
         ))}
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 py-12">
+      <div className="relative z-10 container mx-auto px-6 py-12 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Family Brand Section */}
           <div className="footer-item text-center md:text-left">
             <h3 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent mb-4">
-              EtetFamily
+              EteteFamily
             </h3>
             <p className="text-gray-200 mb-4">
               Celebrating generations of love, laughter, and unforgettable memories. 
@@ -145,7 +148,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-white/20 mt-8 pt-8 text-center">
           <p className="text-gray-200">
-            Made with ❤️ for the EtetFamily • {new Date().getFullYear()}
+            Made with ❤️ for the EteteFamily • {new Date().getFullYear()}
           </p>
           <p className="text-gray-300 text-sm mt-2">
             Family isn't just an important thing. It's everything. 💫

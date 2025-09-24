@@ -51,7 +51,7 @@ const FamilyValues = () => {
     {
       icon: "✨",
       title: "Enduring Legacy",
-      description: "We honor our past while building a future that will inspire generations of EtetFamily members to come.",
+      description: "We honor our past while building a future that will inspire generations of EteteFamily members to come.",
       color: "yellow",
       principles: ["Heritage", "Innovation", "Sustainability"]
     }
@@ -126,7 +126,7 @@ const FamilyValues = () => {
             Our Family Values
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            These core principles have guided the EtetFamily through generations, shaping our identity and strengthening our bonds.
+            These core principles have guided the EteteFamily through generations, shaping our identity and strengthening our bonds.
           </p>
         </div>
 
@@ -172,7 +172,7 @@ const FamilyValues = () => {
               "Family is not an important thing. It's everything. Our love grows stronger with each generation, and our story is written in the hearts of those who came before and those who will follow."
             </blockquote>
             <cite className="text-lg text-gray-600 font-semibold">
-              — EtetFamily Motto
+              — EteteFamily Motto
             </cite>
             
             {/* Decorative elements */}

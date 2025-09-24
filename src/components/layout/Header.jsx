@@ -21,16 +21,16 @@ const Header = () => {
     // Initial animation
     const tl = gsap.timeline();
     tl.fromTo(headerRef.current,
-      { y: -100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "bounce.out" }
+      { y: -100, opacity: 100},
+      { y: 0, opacity: 1, duration: 0.1, ease: "bounce.out" }
     )
     .fromTo(logoRef.current,
       { scale: 0, rotation: -180 },
-      { scale: 1, rotation: 0, duration: 1, ease: "elastic.out(1, 0.5)" },
+      { scale: 1, rotation: 0, duration: 0.1, ease: "elastic.out(1, 0.5)" },
       "-=0.5"
     )
     .fromTo(".nav-item",
-      { y: -50, opacity: 0 },
+      { y: -10, opacity: 100 },
       { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "back.out(1.5)" }
     );
 
@@ -98,7 +98,7 @@ const Header = () => {
             className="relative group cursor-pointer"
           >
             <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent">
-              EtetFamily
+              EteteFamily
             </div>
             
             {/* Animated underline */}

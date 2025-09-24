@@ -149,7 +149,7 @@ const FormSuccess = ({ formData, onReset, onClose }) => {
             "Family is the compass that guides us. They are the inspiration to reach great heights, 
             and our comfort when we occasionally falter."
           </blockquote>
-          <cite className="text-green-600 font-semibold mt-2 block">— EtetFamily Wisdom</cite>
+          <cite className="text-green-600 font-semibold mt-2 block">— EteteFamily Wisdom</cite>
         </div>
       </div>
 

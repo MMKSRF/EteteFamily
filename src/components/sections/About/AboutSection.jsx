@@ -88,7 +88,7 @@ const AboutSection = () => {
             {/* Content */}
             <div ref={contentRef} className="text-white">
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                The <span className="bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">EtetFamily</span> Story
+                The <span className="bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">EteteFamily</span> Story
               </h1>
               
               <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90">
@@ -126,7 +126,7 @@ const AboutSection = () => {
               <img
                 ref={imageRef}
                 src="/images/about/family-hero.jpg"
-                alt="EtetFamily Generations"
+                alt="EteteFamily Generations"
                 className="rounded-3xl shadow-2xl border-4 border-white/20 transform hover:scale-105 transition-transform duration-500"
               />
               
@@ -173,7 +173,7 @@ const AboutSection = () => {
             Become Part of Our Story
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            The EtetFamily story is still being written. Join us as we continue to build memories, 
+            The EteteFamily story is still being written. Join us as we continue to build memories, 
             celebrate milestones, and create a legacy that will inspire generations to come.
           </p>
           <PrimaryButton icon="💌" size="lg" onClick={() => window.location.href = '/contact'}>

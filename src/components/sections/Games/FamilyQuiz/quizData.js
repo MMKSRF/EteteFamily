@@ -1,6 +1,6 @@
 // src/components/sections/Games/FamilyQuiz/quizData.js
 export const quizData = {
-  title: "EtetFamily Knowledge Challenge",
+  title: "EteteFamily Knowledge Challenge",
   description: "Test your knowledge about our family history, members, and traditions!",
   categories: [
     {
@@ -32,7 +32,7 @@ export const quizData = {
     {
       id: 1,
       category: "family-history",
-      question: "In which year did Carlos and Maria Etet get married?",
+      question: "In which year did Carlos and Maria Etete get married?",
       options: ["1948", "1950", "1952", "1955"],
       correctAnswer: 1,
       explanation: "Carlos and Maria got married in 1950, marking the beginning of our family legacy.",
