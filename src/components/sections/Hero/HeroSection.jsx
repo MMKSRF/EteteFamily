@@ -16,20 +16,20 @@ const HeroSection = () => {
   const familyData = {
     founders: {
       grandmother: { name: "Etete", role: "Matriarch", emoji: "👑" },
-      grandfather: { name: "Getachew", role: "Patriarch", emoji: "🌳" }
+      grandfather: { name: "Getachew", role: "", emoji: "🌳" }
     },
     generations: [
       {
         title: "First Generation",
         couples: [
           { 
-            parents: "Saron & Mule", 
+            parents: "Saron & Mulugeta", 
             children: [],
             description: "Building their legacy together"
           },
           { 
-            parents: "Mary & Tamerat", 
-            children: ["Amni", "Joci", "Abeni", "Abigyiya", "Root"],
+            parents: "Maranatha & Tamrat", 
+            children: ["Amni", "Joci", "Abeni", "Abigya ", "Rute"],
             description: "Growing family with five wonderful children"
           },
           { 
@@ -38,7 +38,7 @@ const HeroSection = () => {
             description: "Four amazing children continuing the tradition"
           },
           { 
-            parents: "Mebakom & Feben", 
+            parents: "Enbaqom & Feben", 
             children: [],
             description: "Writing their unique family story"
           },
@@ -230,7 +230,7 @@ const HeroSection = () => {
                     {familyData.founders.grandmother.name}
                   </div>
                   <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 text-center">
-                    <div className="text-cyan-300 font-semibold">Matriarch</div>
+                    <div className="text-cyan-300 font-semibold"></div>
                     <div className="text-gray-300 text-sm">Foundation of Love</div>
                   </div>
                   <div className="holographic-pulse absolute inset-0 rounded-full bg-gradient-to-r from-pink-500/30 to-purple-600/30 blur-xl"></div>
@@ -242,7 +242,7 @@ const HeroSection = () => {
                     {familyData.founders.grandfather.name}
                   </div>
                   <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 text-center">
-                    <div className="text-cyan-300 font-semibold">Patriarch</div>
+                    <div className="text-cyan-300 font-semibold"></div>
                     <div className="text-gray-300 text-sm">Pillar of Strength</div>
                   </div>
                   <div className="holographic-pulse absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500/30 to-blue-600/30 blur-xl"></div>
@@ -334,7 +334,7 @@ const HeroSection = () => {
 
             {/* Call to Action */}
             <div className="mt-16 flex flex-col sm:flex-row gap-6 justify-center my-20">
-              <Link 
+              {/* <Link 
                 to="/family-tree"
                 className="group relative bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl transform hover:scale-110 transition-all duration-300"
               >
@@ -342,7 +342,7 @@ const HeroSection = () => {
                   <span>🌌</span>
                   <span>Explore Quantum Family Tree</span>
                 </span>
-              </Link>
+              </Link> */}
 
               <Link 
                 to="/about"

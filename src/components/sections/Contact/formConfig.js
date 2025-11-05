@@ -1,226 +1,228 @@
 // src/components/sections/Contact/formConfig.js
+
 export const formConfig = {
   contactReasons: [
     {
-      value: 'family-update',
-      label: 'Family News Update',
-      icon: '📢',
-      description: 'Share news about births, weddings, or other family milestones'
+      value: 'general',
+      label: 'General Update',
+      description: 'Share family news and updates',
+      icon: '📢'
     },
     {
-      value: 'tree-correction',
-      label: 'Family Tree Correction',
-      icon: '🌳',
-      description: 'Update information or add missing family members'
-    },
-    {
-      value: 'memory-sharing',
-      label: 'Share Memories',
-      icon: '📸',
-      description: 'Contribute photos, stories, or videos to our family archive'
-    },
-    {
-      value: 'event-invitation',
-      label: 'Event Invitation',
-      icon: '🎉',
-      description: 'Invite family to reunions, celebrations, or gatherings'
+      value: 'celebration',
+      label: 'Celebration',
+      description: 'Birthdays, anniversaries, achievements',
+      icon: '🎉'
     },
     {
       value: 'support',
-      label: 'Family Support',
-      icon: '🤝',
-      description: 'Request or offer help within the family network'
+      label: 'Support Needed',
+      description: 'Help with family matters',
+      icon: '🤝'
     },
     {
-      value: 'general',
-      label: 'General Message',
-      icon: '💬',
-      description: 'Any other family-related communication'
+      value: 'memory',
+      label: 'Family Memory',
+      description: 'Share photos and stories',
+      icon: '📸'
     }
   ],
 
-  // Form validation rules
-  validation: {
-    name: {
-      required: true,
-      minLength: 2,
-      maxLength: 50,
-      pattern: /^[a-zA-Z\s]+$/
-    },
-    email: {
-      required: true,
-      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    },
-    phone: {
-      required: false,
-      pattern: /^[+]?[1-9][\d]{0,15}$/,  
-    //   pattern: /^[\+]?[1-9][\d]{0,15}$/
-    },
-    subject: {
-      required: true,
-      minLength: 5,
-      maxLength: 100
-    },
-    message: {
-      required: true,
-      minLength: 10,
-      maxLength: 1000
-    }
-  },
-
-  // Error messages
-  errorMessages: {
-    name: {
-      required: 'Please enter your name',
-      minLength: 'Name must be at least 2 characters',
-      maxLength: 'Name must be less than 50 characters',
-      pattern: 'Name can only contain letters and spaces'
-    },
-    email: {
-      required: 'Please enter your email',
-      pattern: 'Please enter a valid email address'
-    },
-    phone: {
-      pattern: 'Please enter a valid phone number'
-    },
-    subject: {
-      required: 'Please enter a subject',
-      minLength: 'Subject must be at least 5 characters',
-      maxLength: 'Subject must be less than 100 characters'
-    },
-    message: {
-      required: 'Please enter your message',
-      minLength: 'Message must be at least 10 characters',
-      maxLength: 'Message must be less than 1000 characters'
-    }
-  },
-
-  // Success messages based on contact reason
+  // Add successMessages configuration
   successMessages: {
-    'family-update': {
-      title: '🎉 Update Received!',
-      message: 'Thank you for sharing your family news! We\'ll update our records and share the joy with the family.'
+    general: {
+      title: "Message Sent!",
+      message: "Thank you for sharing your update with the family! We've received your message and will connect with you soon."
     },
-    'tree-correction': {
-      title: '🌳 Tree Updated!',
-      message: 'Thanks for helping keep our family tree accurate! Your changes will be reviewed and applied soon.'
+    celebration: {
+      title: "Celebration Shared!",
+      message: "Your joyful news has been shared with the family! 🎉 We're excited to celebrate with you and will be in touch soon."
     },
-    'memory-sharing': {
-      title: '📸 Memories Added!',
-      message: 'Your contribution to our family archive is precious! These memories will be cherished for generations.'
+    support: {
+      title: "Support Request Received",
+      message: "We've received your request for support. The family is here for you, and we'll reach out to discuss how we can help."
     },
-    'event-invitation': {
-      title: '🎉 Invitation Sent!',
-      message: 'Your event invitation has been shared with the family! We look forward to celebrating together.'
-    },
-    'support': {
-      title: '🤝 Support Activated!',
-      message: 'Your message has been sent to the family network. Help and support are on the way!'
-    },
-    'general': {
-      title: '💌 Message Sent!',
-      message: 'Thank you for reaching out! We\'ll get back to you soon with a family response.'
+    memory: {
+      title: "Memory Preserved!",
+      message: "Thank you for sharing this precious family memory. It's been added to our family archives and will be cherished forever. 📸"
     }
   }
 };
 
-// Form field configurations
+
 export const formFields = [
   {
     name: 'name',
+    label: 'Your Name',
     type: 'text',
-    label: 'Full Name',
     placeholder: 'Enter your full name',
+    required: true,
     icon: '👤',
-    required: true
+    validation: {
+      required: 'Name is required',
+      minLength: { value: 2, message: 'Name must be at least 2 characters' },
+      maxLength: { value: 50, message: 'Name must be less than 50 characters' }
+    }
   },
   {
     name: 'email',
-    type: 'email',
     label: 'Email Address',
-    placeholder: 'your@email.com',
+    type: 'email',
+    placeholder: 'your.email@example.com',
+    required: true,
     icon: '📧',
-    required: true
+    validation: {
+      required: 'Email is required',
+      pattern: {
+        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        message: 'Invalid email address'
+      }
+    }
   },
   {
     name: 'phone',
-    type: 'tel',
     label: 'Phone Number',
+    type: 'tel',
     placeholder: '+1 (555) 123-4567',
+    required: false,
     icon: '📱',
-    required: false
+    validation: {
+      pattern: {
+        value: /^[+]?[\d\s\-()]+$/,
+        message: 'Invalid phone number'
+      }
+    }
   },
   {
     name: 'relationship',
+    label: 'Relationship',
     type: 'select',
-    label: 'Family Relationship',
     placeholder: 'Select your relationship',
-    icon: '👨‍👩‍👧‍👦',
+    required: true,
+    icon: '💝',
     options: [
+      { value: '', label: 'Select relationship' },
       { value: 'immediate', label: 'Immediate Family' },
       { value: 'extended', label: 'Extended Family' },
-      { value: 'married', label: 'Married Into Family' },
-      { value: 'descendant', label: 'Family Descendant' },
-      { value: 'friend', label: 'Family Friend' },
+      { value: 'close_friend', label: 'Close Family Friend' },
+      { value: 'relative', label: 'Relative' },
       { value: 'other', label: 'Other' }
     ],
-    required: true
+    validation: {
+      required: 'Please select your relationship to the family'
+    }
   },
   {
     name: 'subject',
-    type: 'text',
     label: 'Subject',
+    type: 'text',
     placeholder: 'Brief summary of your message',
-    icon: '💭',
-    required: true
+    required: true,
+    icon: '💬',
+    validation: {
+      required: 'Subject is required',
+      minLength: { value: 5, message: 'Subject must be at least 5 characters' },
+      maxLength: { value: 100, message: 'Subject must be less than 100 characters' }
+    }
   },
   {
     name: 'message',
-    type: 'textarea',
     label: 'Your Message',
-    placeholder: 'Share your thoughts, updates, or questions with the family...',
-    icon: '✍️',
+    type: 'textarea',
+    placeholder: 'Share your news, updates, memories, or anything you\'d like to tell the family...',
     required: true,
-    rows: 6
+    rows: 6,
+    icon: '📝',
+    validation: {
+      required: 'Message is required',
+      minLength: { value: 10, message: 'Message must be at least 10 characters' },
+      maxLength: { value: 1000, message: 'Message must be less than 1000 characters' }
+    }
   }
 ];
 
-// Helper functions
-export const validateField = (name, value, config = formConfig) => {
-  const rules = config.validation[name];
+// Helper function to get field configuration by name
+export const getFieldConfig = (fieldName) => {
+  return formFields.find(field => field.name === fieldName);
+};
+
+// Validate a single field
+export const validateField = (fieldName, value) => {
+  const fieldConfig = getFieldConfig(fieldName);
   const errors = [];
 
-  if (rules.required && (!value || value.trim() === '')) {
-    errors.push(config.errorMessages[name].required);
+  if (!fieldConfig) {
+    console.warn(`No configuration found for field: ${fieldName}`);
+    return errors;
   }
 
-  if (value && rules.minLength && value.length < rules.minLength) {
-    errors.push(config.errorMessages[name].minLength);
+  const { validation, required } = fieldConfig;
+
+  // Check if field is required
+  if (required && (!value || value.trim() === '')) {
+    errors.push(validation?.required || 'This field is required');
+    return errors; // Return early if required field is empty
   }
 
-  if (value && rules.maxLength && value.length > rules.maxLength) {
-    errors.push(config.errorMessages[name].maxLength);
+  // Skip further validation if field is empty and not required
+  if (!value || value.trim() === '') {
+    return errors;
   }
 
-  if (value && rules.pattern && !rules.pattern.test(value)) {
-    errors.push(config.errorMessages[name].pattern);
+  // Validate minLength
+  if (validation?.minLength && value.length < validation.minLength.value) {
+    errors.push(validation.minLength.message);
+  }
+
+  // Validate maxLength
+  if (validation?.maxLength && value.length > validation.maxLength.value) {
+    errors.push(validation.maxLength.message);
+  }
+
+  // Validate pattern
+  if (validation?.pattern && !validation.pattern.value.test(value)) {
+    errors.push(validation.pattern.message);
   }
 
   return errors;
 };
 
-export const validateForm = (formData, config = formConfig) => {
+// Validate entire form
+export const validateForm = (formData) => {
   const errors = {};
-  
-  Object.keys(formData).forEach(fieldName => {
-    const fieldErrors = validateField(fieldName, formData[fieldName], config);
+  let isValid = true;
+
+  formFields.forEach(field => {
+    const fieldErrors = validateField(field.name, formData[field.name]);
     if (fieldErrors.length > 0) {
-      errors[fieldName] = fieldErrors[0]; // Show only first error per field
+      errors[field.name] = fieldErrors[0];
+      isValid = false;
     }
   });
 
   return {
-    isValid: Object.keys(errors).length === 0,
+    isValid,
     errors
+  };
+};
+
+// Get initial form state
+export const getInitialFormState = () => {
+  const initialState = {};
+  formFields.forEach(field => {
+    initialState[field.name] = '';
+  });
+  initialState.reason = 'general';
+  return initialState;
+};
+
+// Format form data for submission
+export const formatFormData = (formData) => {
+  return {
+    ...formData,
+    _subject: `Family Message: ${formData.reason} - ${formData.subject}`,
+    _template: 'table',
+    _autoresponse: `Thank you for your message, ${formData.name}! We've received your family update and will get back to you soon. 💖 - The EteteFamily`,
+    _cc: 'perezendale247@gmail.com'
   };
 };

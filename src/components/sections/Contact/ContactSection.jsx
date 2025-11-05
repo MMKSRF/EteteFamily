@@ -1,46 +1,13 @@
 // src/components/sections/Contact/ContactSection.jsx
-import { useState, useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useState } from 'react';
 import ContactForm from './ContactForm';
 import FormSuccess from './FormSuccess';
 import PrimaryButton from '../../ui/buttons/PrimaryButton';
 import InfoCard from '../../ui/cards/InfoCard';
-import { useScrollAnimation } from '../../animations/hooks/useScrollAnimation';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const ContactSection = () => {
   const [formState, setFormState] = useState('idle'); // 'idle', 'submitting', 'success'
   const [submittedData, setSubmittedData] = useState(null);
-  const sectionRef = useRef(null);
-  const headerRef = useScrollAnimation({ animation: 'fadeInDown', duration: 1.5 });
-  const featuresRef = useScrollAnimation({ animation: 'fadeInUp', duration: 1, delay: 0.2 });
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    // Floating background elements
-    const floatingIcons = ['💌', '📮', '✉️', '📧', '💬', '📝'];
-    floatingIcons.forEach((icon) => {
-      const element = document.createElement('div');
-      element.className = 'absolute text-4xl opacity-10 pointer-events-none';
-      element.innerHTML = icon;
-      element.style.left = `${Math.random() * 100}%`;
-      element.style.top = `${Math.random() * 100}%`;
-      section.appendChild(element);
-
-      gsap.to(element, {
-        y: -30,
-        rotation: Math.random() * 360,
-        duration: Math.random() * 10 + 10,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-    });
-  }, []);
 
   const handleFormSubmit = async (formData) => {
     setFormState('submitting');
@@ -50,14 +17,6 @@ const ContactSection = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
       setSubmittedData(formData);
       setFormState('success');
-      
-      // Success animation
-      gsap.to('.contact-content', {
-        opacity: 0,
-        y: -50,
-        duration: 0.5,
-        ease: "power2.in"
-      });
     } catch (error) {
       setFormState('idle');
       console.error('Form submission failed:', error);
@@ -68,12 +27,6 @@ const ContactSection = () => {
   const handleResetForm = () => {
     setFormState('idle');
     setSubmittedData(null);
-    
-    // Reset animation
-    gsap.fromTo('.contact-content',
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
-    );
   };
 
   const handleCloseSuccess = () => {
@@ -109,11 +62,11 @@ const ContactSection = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-purple-600 via-pink-600 to-red-500 text-white overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
-          <div ref={headerRef} className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               Family <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Connection</span>
             </h1>
@@ -145,7 +98,7 @@ const ContactSection = () => {
           {['💌', '📮', '✉️', '📧'].map((icon, i) => (
             <div
               key={i}
-              className="absolute text-4xl opacity-20 animate-float"
+              className="absolute text-4xl opacity-20 animate-bounce"
               style={{
                 left: `${10 + i * 25}%`,
                 top: `${20 + (i % 2) * 40}%`,
@@ -161,7 +114,7 @@ const ContactSection = () => {
       {/* Contact Methods */}
       <section id="contact-methods" className="py-20">
         <div className="container mx-auto px-6">
-          <div ref={featuresRef} className="text-center mb-12">
+          <div className="text-center mb-12">
             <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
               Ways to Connect
             </h2>

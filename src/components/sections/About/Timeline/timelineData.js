@@ -96,15 +96,15 @@ export const timelineCategories = {
 };
 
 export const familyMembers = {
-  "grandpa-maria": { name: "Maria Etete", role: "Family Matriarch" },
-  "grandpa-carlos": { name: "Carlos Etete", role: "Family Patriarch" },
-  "papa-antonio": { name: "Antonio Etete", role: "Business Leader" },
-  "mama-isabel": { name: "Isabel Etete", role: "Family Anchor" },
-  "uncle-miguel": { name: "Miguel Etete", role: "Entrepreneur" },
-  "aunt-carmen": { name: "Carmen Etete", role: "Global Connector" },
-  "cousin-lucia": { name: "Lucia Etete", role: "Cultural Ambassador" },
-  "you": { name: "Current Generation", role: "Digital Pioneers" },
-  "siblings": { name: "Siblings", role: "Family Support" },
-  "cousins": { name: "Cousins", role: "Extended Network" },
-  "new-generation": { name: "Next Generation", role: "Future Leaders" }
+  // "grandpa-maria": { name: "Maria Etete", role: "Family Matriarch" },
+  // "grandpa-carlos": { name: "Carlos Etete", role: "Family Patriarch" },
+  // "papa-antonio": { name: "Antonio Etete", role: "Business Leader" },
+  // "mama-isabel": { name: "Isabel Etete", role: "Family Anchor" },
+  // "uncle-miguel": { name: "Miguel Etete", role: "Entrepreneur" },
+  // "aunt-carmen": { name: "Carmen Etete", role: "Global Connector" },
+  // "cousin-lucia": { name: "Lucia Etete", role: "Cultural Ambassador" },
+  // "you": { name: "Current Generation", role: "Digital Pioneers" },
+  // "siblings": { name: "Siblings", role: "Family Support" },
+  // "cousins": { name: "Cousins", role: "Extended Network" },
+  // "new-generation": { name: "Next Generation", role: "Future Leaders" }
 };

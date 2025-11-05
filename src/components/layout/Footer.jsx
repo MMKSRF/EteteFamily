@@ -57,7 +57,7 @@ const Footer = () => {
   const quickLinks = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'Our Story' },
-    { path: '/family-tree', label: 'Family Tree' },
+    // { path: '/family-tree', label: 'Family Tree' },
     { path: '/gallery', label: 'Gallery' },
     {path: '/contact', label: 'Contact Us' }
   ];

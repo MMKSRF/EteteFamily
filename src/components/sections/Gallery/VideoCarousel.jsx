@@ -20,11 +20,13 @@ const VideoGrid = ({ videos, onVideoClick }) => {
         >
           <div className="relative rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 group-hover:scale-105">
             {/* Video Thumbnail */}
-           <iframe
-  src={video.thumbnail}
-  title={video.title} // use title instead of alt for iframes
-  className="w-full h-48 object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
-/>
+            <div className="relative w-full pt-[56.25%]"> {/* 16:9 aspect ratio container */}
+  <img
+    src={video.thumbnail}
+    alt={video.title}
+    className="absolute top-0 left-0 w-full h-full object-contain rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+  />
+</div>
             
             {/* Play Button Overlay */}
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

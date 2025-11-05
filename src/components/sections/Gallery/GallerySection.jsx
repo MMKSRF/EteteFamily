@@ -65,13 +65,13 @@ const GallerySection = () => {
     setCurrentMedia(mediaArray[prevIndex]);
   };
 
-  // const handleCloseLightbox = () => {
-  //   setLightboxOpen(false);
-  //   setTimeout(() => {
-  //     setCurrentMedia(null);
-  //     setCurrentIndex(0);
-  //   }, 300);
-  // };
+  const handleCloseLightbox = () => {
+    setLightboxOpen(false);
+    setTimeout(() => {
+      setCurrentMedia(null);
+      setCurrentIndex(0);
+    }, 300);
+  };
 
   const filteredVideos = getFilteredVideos();
 
@@ -157,7 +157,7 @@ const GallerySection = () => {
 
 
       {/* Lightbox Modal */}
-      {/* <LightboxModal
+       <LightboxModal
         isOpen={lightboxOpen}
         onClose={handleCloseLightbox}
         media={currentMedia}
@@ -165,7 +165,7 @@ const GallerySection = () => {
         currentIndex={currentIndex}
         onNext={handleNextMedia}
         onPrev={handlePrevMedia}
-      /> */}
+      /> 
       
 
 

@@ -1,9 +1,8 @@
 // src/components/sections/Contact/ContactForm.jsx
 import { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { formConfig, formFields, validateField, validateForm } from './formConfig';
+import { formConfig, formFields, validateField, validateForm, formatFormData } from './formConfig';
 import PrimaryButton from '../../ui/buttons/PrimaryButton';
-import IconButton from '../../ui/buttons/IconButton';
 
 const ContactForm = ({ onSubmit, isLoading }) => {
   const formRef = useRef(null);
@@ -23,13 +22,11 @@ const ContactForm = ({ onSubmit, isLoading }) => {
     const form = formRef.current;
     if (!form) return;
 
-    // Form entrance animation
     gsap.fromTo(form,
       { opacity: 0, y: 50 },
       { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
     );
 
-    // Floating animation for form elements
     gsap.to('.form-element', {
       y: -5,
       duration: 3,
@@ -107,8 +104,39 @@ const ContactForm = ({ onSubmit, isLoading }) => {
       return;
     }
 
-    // Submit form
-    onSubmit(formData);
+    // If custom onSubmit prop is provided, use it
+    if (onSubmit) {
+      onSubmit(formData);
+    } else {
+      // Otherwise, submit to FormSubmit
+      // We'll use a hidden form submission approach
+      const formattedData = formatFormData(formData);
+      
+      // Create a temporary form for FormSubmit
+      const tempForm = document.createElement('form');
+      tempForm.method = 'POST';
+      tempForm.action = 'https://formsubmit.co/perezendale247@gmail.com';
+      tempForm.style.display = 'none';
+      
+      // Add all form data as hidden inputs
+      Object.keys(formattedData).forEach(key => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = formattedData[key];
+        tempForm.appendChild(input);
+      });
+      
+      // Add additional FormSubmit configurations
+      const nextInput = document.createElement('input');
+      nextInput.type = 'hidden';
+      nextInput.name = '_next';
+      nextInput.value = window.location.href + '?success=true';
+      tempForm.appendChild(nextInput);
+      
+      document.body.appendChild(tempForm);
+      tempForm.submit();
+    }
   };
 
   const renderField = (field) => {
@@ -138,7 +166,6 @@ const ContactForm = ({ onSubmit, isLoading }) => {
           <textarea {...commonProps} rows={field.rows} />
         ) : field.type === 'select' ? (
           <select {...commonProps}>
-            <option value="">{field.placeholder}</option>
             {field.options.map(option => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -163,7 +190,7 @@ const ContactForm = ({ onSubmit, isLoading }) => {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="bg-white rounded-3xl shadow-2xl border-2 border-white/20 overflow-hidden max-w-2xl mx-auto"
+      className="bg-white rounded-3xl shadow-2xl border-2 border-white/20 overflow-hidden max-w-2xl mx-auto relative"
     >
       {/* Form Header */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-500 p-6 text-white">

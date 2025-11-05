@@ -73,7 +73,7 @@ const Header = () => {
   const navItems = [
     { path: '/', label: 'Home', emoji: '🏠' },
     { path: '/about', label: 'Our Story', emoji: '📖' },
-    { path: '/family-tree', label: 'Family Tree', emoji: '🌳' },
+    // { path: '/family-tree', label: 'Family Tree', emoji: '🌳' },
     { path: '/gallery', label: 'Gallery', emoji: '🖼️' },
     // { path: '/map', label: 'Family Map', emoji: '🗺️' },
     // { path: '/games', label: 'Games', emoji: '🎮' },
