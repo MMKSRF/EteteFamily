@@ -75,8 +75,8 @@ const Header = () => {
     { path: '/about', label: 'Our Story', emoji: '📖' },
     { path: '/family-tree', label: 'Family Tree', emoji: '🌳' },
     { path: '/gallery', label: 'Gallery', emoji: '🖼️' },
-    { path: '/map', label: 'Family Map', emoji: '🗺️' },
-    { path: '/games', label: 'Games', emoji: '🎮' },
+    // { path: '/map', label: 'Family Map', emoji: '🗺️' },
+    // { path: '/games', label: 'Games', emoji: '🎮' },
     { path: '/contact', label: 'Contact', emoji: '💌' }
   ];
 

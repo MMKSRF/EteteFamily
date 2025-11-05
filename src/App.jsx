@@ -51,8 +51,8 @@ function App() {
           <Route path="/memories" element={<AboutSection />} />
           <Route path="/family-tree" element={<FamilyTreeSection />} />
           <Route path="/gallery" element={<GallerySection />} />
-          <Route path="/map" element={<MapSection />} />
-          <Route path="/games" element={<GamesSection />} />
+          {/* <Route path="/map" element={<MapSection />} /> */}
+          {/* <Route path="/games" element={<GamesSection />} /> */}
           <Route path="/contact" element={<ContactSection />} />
         </Routes>
       </Layout>
