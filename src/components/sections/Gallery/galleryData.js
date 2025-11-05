@@ -190,74 +190,143 @@ export const galleryData = {
       featured: true
     }
   ],
+
   videos: [
-    {
-      id: 1,
-      title: "Family Reunion 2023 Highlights",
-      description: "Best moments from our annual family reunion",
-      thumbnail: "/images/gallery/video-reunion-thumb.jpg",
-      videoUrl: "https://www.youtube.com/embed/example1",
-      category: "family-reunions",
-      duration: "3:45",
-      date: "2023-07-20",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Wedding Ceremony",
-      description: "Lucia's beautiful wedding ceremony",
-      thumbnail: "/images/gallery/video-wedding-thumb.jpg",
-      videoUrl: "https://www.youtube.com/embed/example2",
-      category: "celebrations",
-      duration: "15:20",
-      date: "2021-06-12",
-      featured: true
-    },
-    {
-      id: 3,
-      title: "Family Vacation Memories",
-      description: "Highlights from our summer vacation",
-      thumbnail: "/images/gallery/video-vacation-thumb.jpg",
-      videoUrl: "https://www.youtube.com/embed/example3",
-      category: "travels",
-      duration: "5:30",
-      date: "2022-08-25",
-      featured: false
-    },
-    {
-      id: 4,
-      title: "Christmas Traditions",
-      description: "Our family's unique Christmas traditions",
-      thumbnail: "/images/gallery/video-christmas-thumb.jpg",
-      videoUrl: "https://www.youtube.com/embed/example4",
-      category: "traditions",
-      duration: "8:15",
-      date: "2022-12-28",
-      featured: true
-    },
-    {
-      id: 5,
-      title: "Generational Interviews",
-      description: "Stories from different generations",
-      thumbnail: "/images/gallery/video-interviews-thumb.jpg",
-      videoUrl: "https://www.youtube.com/embed/example5",
-      category: "generations",
-      duration: "12:40",
-      date: "2023-03-10",
-      featured: false
-    },
-    {
-      id: 6,
-      title: "Family Recipe Cooking",
-      description: "Making grandma's famous paella",
-      thumbnail: "/images/gallery/video-cooking-thumb.jpg",
-      videoUrl: "https://www.youtube.com/embed/example6",
-      category: "traditions",
-      duration: "6:50",
-      date: "2023-05-15",
-      featured: true
-    }
-  ]
+  {
+    id: 1,
+    title: "Exploring the Swiss Alps in 4K",
+    description: "A breathtaking drone journey through the Swiss Alps.",
+    thumbnail: "/images/gallery/video-alps-thumb.jpg",
+    videoUrl: "https://www.youtube.com/embed/4XjE1wn-7ek",
+    category: "travel",
+    duration: "4:12",
+    date: "2023-06-10",
+    featured: true
+  },
+  {
+    id: 2,
+    title: "The Art of Making Sushi",
+    description: "Master chef explains how to make traditional Japanese sushi.",
+    thumbnail: "/images/gallery/video-sushi-thumb.jpg",
+    videoUrl: "https://www.youtube.com/embed/I1UDS2kgqY8",
+    category: "food",
+    duration: "10:22",
+    date: "2022-11-02",
+    featured: true
+  },
+  {
+    id: 3,
+    title: "NASA’s Journey to Mars",
+    description: "A look at how NASA is preparing humans for the next big leap.",
+    thumbnail: "/images/gallery/video-nasa-thumb.jpg",
+    videoUrl: "https://www.youtube.com/embed/s9A-9ZZB5rA",
+    category: "science",
+    duration: "6:40",
+    date: "2021-09-14",
+    featured: false
+  },
+  {
+    id: 4,
+    title: "Street Food Around the World",
+    description: "Exploring the best street food from Bangkok to Mexico City.",
+    thumbnail: "/images/gallery/video-streetfood-thumb.jpg",
+    videoUrl: "https://www.youtube.com/embed/y6I6hR5VvBI",
+    category: "culture",
+    duration: "8:55",
+    date: "2023-01-28",
+    featured: true
+  },
+  {
+    id: 5,
+    title: "The History of the Internet",
+    description: "A deep dive into how the internet changed human history.",
+    thumbnail: "/images/gallery/video-internet-thumb.png",
+    videoUrl: "https://www.youtube.com/embed/9hIQjrMHTv4",
+    category: "education",
+    duration: "11:18",
+    date: "2022-07-05",
+    featured: true
+  },
+  {
+    id: 6,
+    title: "Relaxing Rain Sounds for Focus",
+    description: "Rain sounds and soft thunder to help you relax or study.",
+    thumbnail: "/images/gallery/video-rain-thumb.jpg",
+    videoUrl: "https://www.youtube.com/embed/lFbGkqpH4hQ",
+    category: "relaxation",
+    duration: "3:30:00",
+    date: "2023-04-12",
+    featured: true
+  }
+]
+  // videos: [
+  //   {
+  //     id: 1,
+  //     title: "Family Reunion 2023 Highlights",
+  //     description: "Best moments from our annual family reunion",
+  //     thumbnail: "/images/gallery/video-reunion-thumb.jpg",
+  //     videoUrl: "https://www.youtube.com/embed/example1",
+  //     category: "family-reunions",
+  //     duration: "3:45",
+  //     date: "2023-07-20",
+  //     featured: true
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Wedding Ceremony",
+  //     description: "Lucia's beautiful wedding ceremony",
+  //     thumbnail: "/images/gallery/video-wedding-thumb.jpg",
+  //     videoUrl: "https://www.youtube.com/embed/example2",
+  //     category: "celebrations",
+  //     duration: "15:20",
+  //     date: "2021-06-12",
+  //     featured: true
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Family Vacation Memories",
+  //     description: "Highlights from our summer vacation",
+  //     thumbnail: "/images/gallery/video-vacation-thumb.jpg",
+  //     videoUrl: "https://www.youtube.com/embed/example3",
+  //     category: "travels",
+  //     duration: "5:30",
+  //     date: "2022-08-25",
+  //     featured: false
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Christmas Traditions",
+  //     description: "Our family's unique Christmas traditions",
+  //     thumbnail: "/images/gallery/video-christmas-thumb.jpg",
+  //     videoUrl: "https://www.youtube.com/embed/example4",
+  //     category: "traditions",
+  //     duration: "8:15",
+  //     date: "2022-12-28",
+  //     featured: true
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "Generational Interviews",
+  //     description: "Stories from different generations",
+  //     thumbnail: "/images/gallery/video-interviews-thumb.jpg",
+  //     videoUrl: "https://www.youtube.com/embed/example5",
+  //     category: "generations",
+  //     duration: "12:40",
+  //     date: "2023-03-10",
+  //     featured: false
+  //   },
+  //   {
+  //     id: 6,
+  //     title: "Family Recipe Cooking",
+  //     description: "Making grandma's famous paella",
+  //     thumbnail: "/images/gallery/video-cooking-thumb.jpg",
+  //     videoUrl: "https://www.youtube.com/embed/example6",
+  //     category: "traditions",
+  //     duration: "6:50",
+  //     date: "2023-05-15",
+  //     featured: true
+  //   }
+  // ]
 };
 
 // Helper functions

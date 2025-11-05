@@ -1,84 +1,53 @@
-// src/components/sections/Gallery/GallerySection.jsx
-import { useState, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// src/components/sections/Gallery/GallerySection.jsx (Updated video sections)
+import { useState } from 'react';
 import { galleryData, getFeaturedMedia } from './galleryData';
 import PhotoGrid from './PhotoGrid';
-import VideoCarousel from './VideoCarousel';
+import VideoGrid from './VideoCarousel'; // New component
 import LightboxModal from './LightboxModal';
 import PrimaryButton from '../../ui/buttons/PrimaryButton';
-import IconButton from '../../ui/buttons/IconButton';
-import { useScrollAnimation } from '../../animations/hooks/useScrollAnimation';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const GallerySection = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeTab, setActiveTab] = useState('photos'); // 'photos' or 'videos'
+  const [activeTab, setActiveTab] = useState('photos');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentMedia, setCurrentMedia] = useState(null);
   const [mediaType, setMediaType] = useState('photo');
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const sectionRef = useRef(null);
-  const headerRef = useScrollAnimation({ animation: 'fadeInDown', duration: 1.5 });
-  const featuredRef = useRef(null);
-
   const featuredMedia = getFeaturedMedia();
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    // Animate featured section
-    gsap.fromTo(featuredRef.current,
-      { opacity: 0, y: 100 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: featuredRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-    // Floating background elements
-    const floatingIcons = ['📷', '🎞️', '✨', '🌟', '📸', '🎬'];
-    floatingIcons.forEach((icon) => {
-      const element = document.createElement('div');
-      element.className = 'absolute text-4xl opacity-10 pointer-events-none';
-      element.innerHTML = icon;
-      element.style.left = `${Math.random() * 100}%`;
-      element.style.top = `${Math.random() * 100}%`;
-      section.appendChild(element);
-
-      gsap.to(element, {
-        y: -30,
-        rotation: Math.random() * 360,
-        duration: Math.random() * 10 + 10,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-    });
-  }, []);
-
-  const handlePhotoClick = (photo) => {
-    setCurrentMedia(photo);
-    setMediaType('photo');
-    setCurrentIndex(galleryData.photos.findIndex(p => p.id === photo.id));
-    setLightboxOpen(true);
+  // Filter videos based on category and search
+  const getFilteredVideos = () => {
+    let filtered = galleryData.videos;
+    
+    if (selectedCategory !== 'all') {
+      filtered = filtered.filter(video => video.category === selectedCategory);
+    }
+    
+    if (searchTerm) {
+      filtered = filtered.filter(video =>
+        video.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        video.description.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    
+    return filtered;
   };
 
   const handleVideoClick = (video) => {
     setCurrentMedia(video);
     setMediaType('video');
-    setCurrentIndex(galleryData.videos.findIndex(v => v.id === video.id));
+    const videoIndex = galleryData.videos.findIndex(v => v.id === video.id);
+    setCurrentIndex(videoIndex);
+    setLightboxOpen(true);
+  };
+
+  const handlePhotoClick = (photo) => {
+    setCurrentMedia(photo);
+    setMediaType('photo');
+    const photoIndex = galleryData.photos.findIndex(p => p.id === photo.id);
+    setCurrentIndex(photoIndex);
     setLightboxOpen(true);
   };
 
@@ -104,12 +73,14 @@ const GallerySection = () => {
     }, 300);
   };
 
+  const filteredVideos = getFilteredVideos();
+
   return (
-    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-purple-50">
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-r from-purple-600 via-pink-600 to-red-500 text-white overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
-          <div ref={headerRef} className="text-center max-w-4xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               Family <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Gallery</span>
             </h1>
@@ -135,27 +106,10 @@ const GallerySection = () => {
             </div>
           </div>
         </div>
-
-        {/* Floating camera icons */}
-        <div className="absolute inset-0 overflow-hidden">
-          {['📷', '🎥', '📸', '🎞️'].map((icon, i) => (
-            <div
-              key={i}
-              className="absolute text-4xl opacity-20 animate-float"
-              style={{
-                left: `${10 + i * 25}%`,
-                top: `${20 + (i % 2) * 40}%`,
-                animationDelay: `${i * 2}s`
-              }}
-            >
-              {icon}
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* Featured Section */}
-      <section id="featured" ref={featuredRef} className="py-20">
+      <section id="featured" className="py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
@@ -166,24 +120,29 @@ const GallerySection = () => {
 
           {/* Featured Videos */}
           <div className="mb-16">
-            <VideoCarousel 
-              videos={featuredMedia.videos}
-              onVideoClick={handleVideoClick}
-              selectedCategory="all"
-            />
+            <div className="bg-gradient-to-br from-gray-900 to-purple-900 rounded-3xl p-8 text-white">
+              <div className="text-center mb-8">
+                {/* <h3 className="text-3xl font-bold mb-2">Featured Videos</h3> */}
+                <p className="text-white/80">Watch our most special moments</p>
+              </div>
+              <VideoGrid 
+                videos={featuredMedia.videos}
+                onVideoClick={handleVideoClick}
+              />
+            </div>
           </div>
 
-          {/* Featured Photos Grid */}
+          {/* Featured Photos */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredMedia.photos.slice(0, 6).map(photo => (
               <div key={photo.id} className="group cursor-pointer" onClick={() => handlePhotoClick(photo)}>
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 group-hover:scale-105">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-300 group-hover:scale-105">
                   <img
                     src={photo.image}
                     alt={photo.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <div className="text-white">
                       <h3 className="font-bold text-lg">{photo.title}</h3>
                       <p className="text-white/90 text-sm">{photo.description}</p>
@@ -284,48 +243,15 @@ const GallerySection = () => {
               searchTerm={searchTerm}
             />
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {galleryData.videos
-                .filter(video => selectedCategory === 'all' || video.category === selectedCategory)
-                .filter(video => 
-                  searchTerm === '' ||
-                  video.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                  video.description.toLowerCase().includes(searchTerm.toLowerCase())
-                )
-                .map(video => (
-                  <div key={video.id} className="group cursor-pointer" onClick={() => handleVideoClick(video)}>
-                    <div className="relative rounded-2xl overflow-hidden shadow-lg transform transition-all duration-500 group-hover:scale-105">
-                      <img
-                        src={video.thumbnail}
-                        alt={video.title}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                        <div className="bg-white/20 backdrop-blur-sm rounded-full p-4 transform group-hover:scale-110 transition-transform duration-300">
-                          <span className="text-3xl">▶️</span>
-                        </div>
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white bg-gradient-to-t from-black/80 to-transparent">
-                        <h3 className="font-bold">{video.title}</h3>
-                        <p className="text-white/90 text-sm">{video.duration}</p>
-                      </div>
-                      {video.featured && (
-                        <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-2 py-1 rounded-full text-xs font-bold">
-                          ⭐
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))
-              }
-            </div>
+            <VideoGrid
+              videos={filteredVideos}
+              onVideoClick={handleVideoClick}
+            />
           )}
         </div>
       </section>
 
       {/* Lightbox Modal */}
-
-      {/* <div> lorem ipsum </div> */}
       <LightboxModal
         isOpen={lightboxOpen}
         onClose={handleCloseLightbox}
